@@ -71,7 +71,7 @@ class DomainRecord extends AbstractApi
      *
      * @return DomainRecordEntity
      */
-    public function create(string $domainName, string $type, string $name, string $data, int $priority = null, int $port = null, int $weight = null, int $flags = null, string $tag = null, int $ttl = null)
+    public function create(string $domainName, string $type, string $name, string $data, ?int $priority = null, ?int $port = null, ?int $weight = null, ?int $flags = null, ?string $tag = null, ?int $ttl = null)
     {
         switch ($type = \strtoupper($type)) {
             case 'A':

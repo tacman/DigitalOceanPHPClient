@@ -72,7 +72,7 @@ class LoadBalancer extends AbstractApi
     public function create(
         string $name,
         string $region,
-        array $forwardRules = null,
+        ?array $forwardRules = null,
         string $algorithm = 'round_robin',
         array $healthCheck = [],
         array $stickySessions = [],

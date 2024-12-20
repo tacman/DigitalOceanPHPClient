@@ -31,7 +31,7 @@ class Volume extends AbstractApi
      *
      * @return VolumeEntity[] Lists all of the Block Storage volumes available
      */
-    public function getAll(string $regionSlug = null)
+    public function getAll(?string $regionSlug = null)
     {
         $query = null === $regionSlug ? [] : ['region' => $regionSlug];
 
@@ -104,7 +104,7 @@ class Volume extends AbstractApi
      *
      * @return VolumeEntity
      */
-    public function create(string $name, string $description, int $sizeInGigabytes, string $regionSlug, string $snapshotId = null, string $filesystemType = null, string $filesystemLabel = null)
+    public function create(string $name, string $description, int $sizeInGigabytes, string $regionSlug, ?string $snapshotId = null, ?string $filesystemType = null, ?string $filesystemLabel = null)
     {
         $data = [
             'size_gigabytes' => $sizeInGigabytes,

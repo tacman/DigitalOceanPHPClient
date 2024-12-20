@@ -72,7 +72,7 @@ class Database extends AbstractApi
      *
      * @return DatabaseClusterEntity
      */
-    public function createCluster(string $name, string $engine, string $size, string $region, int $numNodes, string $version = null, array $tags = [], string $privateNetworkUuid = null)
+    public function createCluster(string $name, string $engine, string $size, string $region, int $numNodes, ?string $version = null, array $tags = [], ?string $privateNetworkUuid = null)
     {
         $cluster = $this->post('databases', [
             'name' => $name,
@@ -211,7 +211,7 @@ class Database extends AbstractApi
      *
      * @return DatabaseClusterEntity
      */
-    public function createClusterFromBackup(string $name, array $backupRestore, string $engine, string $size, string $region, int $numNodes, string $version = null, array $tags = [], string $privateNetworkUuid = null)
+    public function createClusterFromBackup(string $name, array $backupRestore, string $engine, string $size, string $region, int $numNodes, ?string $version = null, array $tags = [], ?string $privateNetworkUuid = null)
     {
         $database = $this->post('databases', [
             'name' => $name,
@@ -271,7 +271,7 @@ class Database extends AbstractApi
      *
      * @return DatabaseReplicaEntity
      */
-    public function createReplica(string $clusterId, string $name, string $size, string $region = null, array $tags = [], string $privateNetworkUuid = null)
+    public function createReplica(string $clusterId, string $name, string $size, ?string $region = null, array $tags = [], ?string $privateNetworkUuid = null)
     {
         $replica = $this->post(\sprintf('databases/%s/replicas', $clusterId), [
             'name' => $name,
@@ -337,7 +337,7 @@ class Database extends AbstractApi
      *
      * @return DatabaseUserEntity
      */
-    public function createUser(string $clusterId, string $name, string $authPlugin = null)
+    public function createUser(string $clusterId, string $name, ?string $authPlugin = null)
     {
         $user = $this->post(\sprintf('databases/%s/users', $clusterId), [
             'name' => $name,
